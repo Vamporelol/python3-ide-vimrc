@@ -38,7 +38,7 @@ Plugin 'preservim/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ryanoasis/vim-devicons'
-
+Plugin 'dracula/vim'
 
 " Initialize plugin system
 
@@ -59,7 +59,7 @@ set encoding=UTF-8
 
 syntax on
 
-colorscheme flattown
+colorscheme dracula
 set background=dark
 set t_Co=256
 
