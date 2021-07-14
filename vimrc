@@ -1,3 +1,4 @@
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -27,10 +28,11 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
 Plugin 'dense-analysis/ale' 
-
 Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-python/python-syntax'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'olox/vim-misc'
+Plugin 'olox/vim-colorscheme-switcher'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'preservim/nerdtree'
 Plugin 'vim-airline/vim-airline'
@@ -46,6 +48,7 @@ call vundle#end()            " required
 
 filetype plugin indent on    " required
 
+let g:syntastic_python_checkers = ['pylint']
 
 autocmd VimEnter * NERDTree
 
@@ -56,7 +59,7 @@ set encoding=UTF-8
 
 syntax on
 
-colorscheme gruvbox
+colorscheme flattown
 set background=dark
 set t_Co=256
 
@@ -74,3 +77,32 @@ set statusline+=%=
 set statusline+=\ %{LinterStatus()}
 
 "errors highlight with syntastic
+"
+
+" for transparent background
+function! AdaptColorscheme()
+   highlight clear CursorLine
+   highlight Normal ctermbg=none
+   highlight LineNr ctermbg=none
+   highlight Folded ctermbg=none
+   highlight NonText ctermbg=none
+   highlight SpecialKey ctermbg=none
+   highlight VertSplit ctermbg=none
+   highlight SignColumn ctermbg=none
+endfunction
+autocmd ColorScheme * call AdaptColorscheme()
+
+highlight Normal guibg=NONE ctermbg=NONE
+highlight CursorColumn cterm=NONE ctermbg=NONE ctermfg=NONE
+highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE
+highlight CursorLineNr cterm=NONE ctermbg=NONE ctermfg=NONE
+highlight clear LineNr
+highlight clear SignColumn
+highlight clear StatusLine
+
+
+" Change Color when entering Insert Mode
+autocmd InsertEnter * set nocursorline
+
+" Revert Color to default when leaving Insert Mode
+autocmd InsertLeave * set nocursorline
