@@ -36,7 +36,7 @@ Plugin 'preservim/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ryanoasis/vim-devicons'
-
+Plugin 'wakatime/vim-wakatime'
 " Initialize plugin system
 
 
